@@ -2,7 +2,7 @@ export default async function handler(req, res) {
   const backendBase = "http://16.171.206.151:5000";
 
   const path = req.query.path.join("/");
-  const url = `${backendBase}/${path}`;
+  const url = `${backendBase}/api/${path}`;
 
   const response = await fetch(url, {
     method: req.method,
