@@ -1,7 +1,8 @@
 export default async function handler(req, res) {
-  const backendUrl = "http://16.171.206.151:5000";
+  const backendBase = "http://16.171.206.151:5000";
 
-  const url = backendUrl + req.url.replace("/api", "");
+  const path = req.query.path.join("/");
+  const url = `${backendBase}/${path}`;
 
   const response = await fetch(url, {
     method: req.method,
@@ -14,6 +15,6 @@ export default async function handler(req, res) {
     body: req.method !== "GET" ? JSON.stringify(req.body) : undefined,
   });
 
-  const data = await response.text();
-  res.status(response.status).send(data);
+  const text = await response.text();
+  res.status(response.status).send(text);
 }
