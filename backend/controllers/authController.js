@@ -1,6 +1,9 @@
 const { v4: uuidv4 } = require("uuid");
 const User = require("../models/userModel");
 const tokens = require("../middleware/tokenStore");
+const db = require("../db");
+
+const result = await db.query("SELECT * FROM users");
 
 exports.login = (req, res) => {
   const { email, password } = req.body;
@@ -19,7 +22,7 @@ exports.login = (req, res) => {
     if (user.password !== password)
       return res.status(401).json({ message: "Invalid credentials" });
 
-    const token = uuidv4(); // 36-character token
+    const token = uuidv4(); 
     tokens.set(token, { id: user.id, role: user.role });
 
     res.json({

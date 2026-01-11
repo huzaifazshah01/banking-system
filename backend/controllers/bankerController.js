@@ -1,5 +1,8 @@
 const User = require("../models/userModel");
 const Account = require("../models/accountModel");
+const db = require("../db");
+
+const result = await db.query("SELECT * FROM users");
 
 exports.getAllCustomers = (req, res) => {
   console.log("BANKER USER:", req.user);
