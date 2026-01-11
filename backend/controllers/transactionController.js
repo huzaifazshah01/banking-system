@@ -1,7 +1,4 @@
 const Account = require("../models/accountModel");
-const db = require("../db");
-
-const result = await db.query("SELECT * FROM users");
 
 exports.getTransactions = (req, res) => {
   const userId = req.user.id;

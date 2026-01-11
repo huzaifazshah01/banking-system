@@ -1,9 +1,6 @@
 const { v4: uuidv4 } = require("uuid");
 const User = require("../models/userModel");
 const tokens = require("../middleware/tokenStore");
-const db = require("../db");
-
-const result = await db.query("SELECT * FROM users");
 
 exports.login = (req, res) => {
   const { email, password } = req.body;
