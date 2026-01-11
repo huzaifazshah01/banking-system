@@ -147,29 +147,29 @@ Ensure the backend is running before interacting with the hosted frontend.
 
 ## Screenshots
 ### Database
-#### MySQL Database Creation
+### MySQL Database Creation
 ![MySQL Database Creation](screenshots/1.PNG)
-#### MySQL Database Insertion
+### MySQL Database Insertion
 ![MySQL Database Insertion](screenshots/2.PNG)
 ### Customer Side
-#### Customer Login Page
+### Customer Login Page
 ![Customer Login Page](screenshots/3.PNG)
-#### Customer Dashboard Page
+### Customer Dashboard Page
 ![Customer Dashboard Page](screenshots/4.PNG)
-#### Customer Withdrawing
+### Customer Withdrawing
 ![Customer Withdrawing](screenshots/5.PNG)
 ![Customer Withdrawing](screenshots/6.PNG)
-#### Customer Depositing
+### Customer Depositing
 ![Customer Depositing](screenshots/9.PNG)
 ![Customer Depositing](screenshots/10.PNG)
-#### Customer Withdrawing > Balance
+### Customer Withdrawing > Balance
 ![Customer Withdrawing > Balance](screenshots/7.PNG)
 ![Customer Withdrawing > Balance](screenshots/8.PNG)
 
 ### Banker Side
-#### Banker Login Page
+### Banker Login Page
 ![Banker Login Page](screenshots/11.PNG)
-#### Banker Dashboard Showing Current Customers
+### Banker Dashboard Showing Current Customers
 ![Banker Dashboard Showing Current Customers](screenshots/12.PNG)
-#### Banker Dashboard Showing Details of Customers
+### Banker Dashboard Showing Details of Customers
 ![Banker Dashboard Showing Details of Customers](screenshots/13.PNG)
