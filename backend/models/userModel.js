@@ -28,7 +28,7 @@
 //   db.query(sql, [data.name, data.email, id], callback);
 // };
 
-const db = require("../db");
+const db = require("../config/db");
 
 exports.findByEmail = async (email) => {
   const sql = `
