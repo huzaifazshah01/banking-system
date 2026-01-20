@@ -1,34 +1,74 @@
+// const db = require("../config/db");
+
+// exports.getLastBalance = (userId, callback) => {
+//   const sql = `
+//     SELECT balance 
+//     FROM accounts 
+//     WHERE user_id = ? 
+//     ORDER BY created_at DESC 
+//     LIMIT 1
+//   `;
+//   db.query(sql, [userId], callback);
+// };
+
+// exports.createTransaction = (data, callback) => {
+//   const sql = `
+//     INSERT INTO accounts (user_id, type, amount, balance)
+//     VALUES (?, ?, ?, ?)
+//   `;
+//   db.query(
+//     sql,
+//     [data.user_id, data.type, data.amount, data.balance],
+//     callback
+//   );
+// };
+
+// exports.getTransactionsByUser = (userId, callback) => {
+//   const sql = `
+//     SELECT id, type, amount, balance, created_at
+//     FROM accounts
+//     WHERE user_id = ?
+//     ORDER BY created_at DESC
+//   `;
+//   db.query(sql, [userId], callback);
+// };
 const db = require("../config/db");
 
-exports.getLastBalance = (userId, callback) => {
+exports.getLastBalance = async (userId) => {
   const sql = `
-    SELECT balance 
-    FROM accounts 
-    WHERE user_id = ? 
-    ORDER BY created_at DESC 
+    SELECT balance
+    FROM accounts
+    WHERE user_id = $1
+    ORDER BY created_at DESC
     LIMIT 1
   `;
-  db.query(sql, [userId], callback);
+
+  const result = await db.query(sql, [userId]);
+  return result.rows;
 };
 
-exports.createTransaction = (data, callback) => {
+exports.createTransaction = async (data) => {
   const sql = `
     INSERT INTO accounts (user_id, type, amount, balance)
-    VALUES (?, ?, ?, ?)
+    VALUES ($1, $2, $3, $4)
   `;
-  db.query(
-    sql,
-    [data.user_id, data.type, data.amount, data.balance],
-    callback
-  );
+
+  await db.query(sql, [
+    data.user_id,
+    data.type,
+    data.amount,
+    data.balance
+  ]);
 };
 
-exports.getTransactionsByUser = (userId, callback) => {
+exports.getTransactionsByUser = async (userId) => {
   const sql = `
     SELECT id, type, amount, balance, created_at
     FROM accounts
-    WHERE user_id = ?
+    WHERE user_id = $1
     ORDER BY created_at DESC
   `;
-  db.query(sql, [userId], callback);
+
+  const result = await db.query(sql, [userId]);
+  return result.rows;
 };
