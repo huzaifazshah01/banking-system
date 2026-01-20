@@ -107,8 +107,7 @@ exports.getTransactions = async (req, res) => {
     const userId = req.user.id;
     const results = await Account.getTransactionsByUser(userId);
 
-    const balance =
-      results.length > 0 ? Number(results[0].balance) : 0;
+    const balance = results && results.length > 0 ? Number(results[0].balance) : 0;
 
     res.json({
       balance,
